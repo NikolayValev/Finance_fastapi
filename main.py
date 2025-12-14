@@ -28,4 +28,17 @@ app.include_router(economics.router, prefix="/api", tags=["Economics"])
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Finance Data Aggregator API"}
+    return {
+        "message": "Welcome to the Finance Data Aggregator API",
+        "description": "A comprehensive API for accessing financial and economic data from multiple sources",
+        "version": "1.0.0",
+        "documentation": {
+            "interactive_docs": "/docs",
+            "redoc": "/redoc",
+            "openapi_schema": "/openapi.json"
+        },
+        "endpoints": {
+            "finance": "/api/finance",
+            "economics": "/api/economics"
+        }
+    }
